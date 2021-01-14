@@ -5,9 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7cb3499137.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
     <title>Stock Profit & Loss Calculator</title>
 </head>
 <body>
+    <main>
+        <h1 class="is-centered">
+            Stock Calculator
+        </h1>
+        <section class="stock-details is-centered">
+            <p class="detail-box">Open <br /> <span class="weight-bold">100</span></p>
+            <p class="detail-box">High <br /> <span class="weight-bold">100</span></p>
+            <p class="detail-box">Low <br /> <span class="weight-bold">100</span></p>
+            <p class="detail-box">Close <br /> <span class="weight-bold"> 100</span></p>
+        </section>
+    
+        <section id="get-info">
+            <div class="flex">
+                <p>Select a company</p>
+                <select name="companies" id="companies">
+                    <option value="select">Select a company</option>
+                    <option value="TSLA">Tesla - TSLA</option>
+                </select>
+            </div>
+            <div class="flex">
+                <p>Enter number of shares</p>
+                <input class="input-field" type="text" placeholder="500" />
+            </div>
+            <div class="flex">
+                <p>Enter buying price</p>
+                <div>
+                    <input class="input-field" type="text" placeholder="400" />
+                    <i class="fas fa-dollar-sign"></i></div>
+                </div>
+            <div class="flex" style="background-color:red; color: white">
+                <p>Profit/Loss</p>
+                <input class="input-field" type="text" placeholder="N/A" disabled/>
+            </div>   
+            <div class="flex">
+                <p>Profit/Loss %</p>
+                <input class="input-field" type="text" placeholder="N/A" disabled/>
+            </div> 
+        </section>
+    </main>
 </body>
 </html>
