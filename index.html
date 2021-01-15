@@ -29,21 +29,22 @@
             </div>
             <div class="flex">
                 <p>Enter number of shares</p>
-                <input class="input-field" type="text" placeholder="500" />
+                <input class="input-field" id="inputShareNo" type="text" placeholder="500" />
             </div>
             <div class="flex">
                 <p>Enter buying price</p>
                 <div>
-                    <input class="input-field" type="text" placeholder="400" />
+                    <input class="input-field" id="inputBuyPrice" type="text" placeholder="400" />
                     <i class="fas fa-dollar-sign"></i></div>
-                </div>
-            <div class="flex" style="background-color:red; color:">
+            </div>
+            <button class="button">Calculate</button>
+            <div class="flex output">
                 <p>Profit/Loss</p>
-                <input class="input-field" type="text" placeholder="N/A" disabled/>
+                <input class="input-field" id="output1" type="text" placeholder="N/A" disabled/>
             </div>   
-            <div class="flex">
+            <div class="flex output">
                 <p>Profit/Loss %</p>
-                <input class="input-field" type="text" placeholder="N/A" disabled/>
+                <input class="input-field" id="output2" type="text" placeholder="N/A" disabled/>
             </div> 
         </section>
     </main>
