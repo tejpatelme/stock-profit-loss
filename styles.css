@@ -23,12 +23,19 @@ section {
     font-weight: 700;
 }
 
+.stock-details{
+    max-width: 360px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+    /* row-gap: 16px; */
+}
+
 .stock-details .detail-box{
     display: inline-block;
-    margin-right: 1rem;
+    max-width: 120px;
+    /* margin-right: 1rem; */
     padding: 1rem;
-    background-color :#D1D1D1; 
-    border-radius: 4px;
 }
 .stock-details .detail-box:nth-child(4){
     margin-right: 0;
