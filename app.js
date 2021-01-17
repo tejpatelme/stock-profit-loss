@@ -9,7 +9,7 @@ let stockDetailsItem = document.querySelectorAll(".weight-bold");
 let errorDiv = document.querySelector(".errorDiv");
 let message = document.getElementById("message");
 
-let api_key = "K7GCCMCOXNSL32G9";
+let api_key = access.key;
 let stockDetails = [];
 
 //generating url to fetch based on the company selected
