@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap');
 
+:root {
+    --grey-one : #424242;
+    --grey-two : #222222;
+}
+
 * {
     font-family : 'Roboto', sans-serif;
     margin: 0;
@@ -7,8 +12,9 @@
     box-sizing: border-box;
 }
 
-h1 {
-    margin: 16px 0 32px 0;
+h2 {
+    margin: 16px 0 16px 0;
+    color: var(--grey-one);
 }
 
 section {
@@ -21,6 +27,7 @@ section {
 
 .weight-bold {
     font-weight: 700;
+    color: var(--grey-two);
 }
 
 .stock-details{
@@ -36,6 +43,7 @@ section {
     max-width: 360px;
     /* margin-right: 1rem; */
     padding: 1rem;
+    color: var(--grey-one);
 }
 .stock-details .detail-box:nth-child(4){
     margin-right: 0;
@@ -51,6 +59,10 @@ section {
     padding: 0.6rem;
     border-radius: 4px;
     margin-bottom: 1em;
+}
+
+.flex p {
+    color: var(--grey-one);;
 }
 
 .errorDiv {
@@ -89,6 +101,7 @@ section {
     width: 160px;
     text-align: right;
     background: none;
+    color: var(--grey-two );
 }
 
 .input-field:focus {
@@ -97,6 +110,9 @@ section {
 
 .output {
     background-color: grey;
+}
+
+.output p{
     color: white;
 }
 
