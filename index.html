@@ -13,6 +13,8 @@
             Stock Calculator
         </h1>
         <section class="stock-details is-centered">
+            <p class="detail-box" style="    grid-column-start: 1;
+            grid-column-end: 4;">Latest Trading Day <span class="weight-bold">--</span></p>
             <p class="detail-box">Open <br /> <span class="weight-bold">--</span></p>
             <p class="detail-box">Prev. Close <br /> <span class="weight-bold"> --</span></p>
             <p class="detail-box">Price <br /> <span class="weight-bold">--</span></p>
@@ -45,7 +47,7 @@
             </div>
             <div class="errorDiv">
                 <i class="fas fa-exclamation-circle"></i>
-                <p>this is an error message</p>
+                <p id="message"></p>
             </div>
             <button class="button">Calculate</button>
             <div class="flex output">
