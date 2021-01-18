@@ -34,8 +34,8 @@ function calcProfitLoss(costPrice, currentCostPrice){
         profitOrLoss.style.backgroundColor = "red";
         profitLossPercent.style.backgroundColor = "red";
     }
-    profitOrLoss.value = "$" + profit;
-    profitLossPercent.value = profitPercent;
+    profitOrLoss.value = "$" + profit.toFixed(2);
+    profitLossPercent.value = profitPercent.toFixed(2);
 
 }
 
