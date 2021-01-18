@@ -100,5 +100,14 @@ function clickHandler(){
 
 calcButton.addEventListener('click', clickHandler);
 
+//dynamically populating the drop-down
+window.addEventListener('load', ()=> {
+    let option;
+    for(let i=0; i<companiessandp.length; i++){
+        option = new Option(companiessandp[i].Security, companiessandp[i].Symbol);
+        companies.add(option);
+    }
+})
+
 
 
