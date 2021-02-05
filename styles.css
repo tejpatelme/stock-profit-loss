@@ -30,6 +30,10 @@ section {
     color: var(--grey-two);
 }
 
+select {
+    background-color: white;
+}
+
 .stock-details{
     max-width: 360px;
     margin: auto auto 1.5em auto;
