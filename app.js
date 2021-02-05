@@ -91,7 +91,7 @@ function clickHandler(){
             // console.log(stockDetails);
             // console.log(json["Global Quote"]["05. price"]);
         })
-        .then( run => {
+        .then( () => {
             calcProfitLoss(costPrice, currentPrice*noOfShares)})
         .catch(handleError)
     }
