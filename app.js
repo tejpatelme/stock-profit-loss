@@ -1,15 +1,15 @@
-let companies = document.getElementById("companies");
-let shareInput = document.getElementById("inputShareNo");
-let priceInput = document.getElementById("inputBuyPrice");
-let profitOrLoss = document.getElementById("output1");
-let output = document.querySelectorAll(".output");
-let profitLossPercent = document.getElementById("output2");
-let calcButton = document.querySelector(".button");
-let stockDetailsItem = document.querySelectorAll(".weight-bold");
-let errorDiv = document.querySelector(".errorDiv");
-let message = document.getElementById("message");
+const companies = document.getElementById("companies");
+const shareInput = document.getElementById("inputShareNo");
+const priceInput = document.getElementById("inputBuyPrice");
+const profitOrLoss = document.getElementById("output1");
+const output = document.querySelectorAll(".output");
+const profitLossPercent = document.getElementById("output2");
+const calcButton = document.querySelector(".button");
+const stockDetailsItem = document.querySelectorAll(".weight-bold");
+const errorDiv = document.querySelector(".errorDiv");
+const message = document.getElementById("message");
 
-let api_key = access.key;
+const api_key = access.key;
 let stockDetails = [];
 
 //generating url to fetch based on the company selected
@@ -20,8 +20,8 @@ function generateURL(companyName){
 
 //calculating profit/loss and displaying the output in the output divs
 function calcProfitLoss(costPrice, currentCostPrice){
-    let profit = currentCostPrice - costPrice;
-    let profitPercent = profit * 100/ costPrice;
+    const profit = currentCostPrice - costPrice;
+    const profitPercent = profit * 100/ costPrice;
     if(profit>=0){
         output[0].style["background-color"] = "green";
         output[1].style["background-color"] = "green";
@@ -63,9 +63,9 @@ function handleError(error){
 }
 
 //called when the calculate button is clicked.
-function clickHandler(){
-    let noOfShares = parseInt(shareInput.value);
-    let priceOfShare = parseFloat(priceInput.value);
+async function clickHandler(){
+    const noOfShares = parseInt(shareInput.value);
+    const priceOfShare = parseFloat(priceInput.value);
     let company = companies.options[companies.selectedIndex].value;
     if(company === "select"){
         showMessage("Please select a company")
@@ -78,24 +78,21 @@ function clickHandler(){
     }
     else{
         hideMessage();
-        let costPrice = priceOfShare * noOfShares;
+        const costPrice = priceOfShare * noOfShares;
         let currentPrice = 0;
-        serverURL = generateURL(company);
-        fetch(serverURL)
-        .then(response => response.json())
-        .then(json => {
+        const serverURL = generateURL(company);
+        try {
+            const response = await fetch(serverURL);
+            const json = await response.json();
             currentPrice = parseFloat(json["Global Quote"]["05. price"]);
-            //populating the stockdetails array so as to pass it to the fillStockDetails function
             stockDetails = [json["Global Quote"]["07. latest trading day"],json["Global Quote"]["02. open"],json["Global Quote"]["08. previous close"],json["Global Quote"]["05. price"],json["Global Quote"]["03. high"],json["Global Quote"]["04. low"],json["Global Quote"]["06. volume"]];
             fillStockDetails(stockDetails);
-            // console.log(stockDetails);
-            // console.log(json["Global Quote"]["05. price"]);
-        })
-        .then( () => {
-            calcProfitLoss(costPrice, currentPrice*noOfShares)})
-        .catch(handleError)
+            calcProfitLoss(costPrice, currentPrice*noOfShares);
+        } catch (error) {
+            console.log(error);
+            alert("There is something wrong with the server. Please try again in some time");
+        }
     }
-
 }
 
 calcButton.addEventListener('click', clickHandler);
